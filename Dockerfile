@@ -13,7 +13,7 @@ ENV TYPE=socks5
 ENV DEST_IP=127.0.0.1
 ENV DEST_PORT=9050
 
-RUN apt update && apt install -y libevent-dev iptables
+RUN apt update && apt install -y libevent-dev iptables redsocks
 COPY --from=build /build/redsocks2/redsocks2 /usr/local/bin/redsocks2
 
 #Copy configuration files

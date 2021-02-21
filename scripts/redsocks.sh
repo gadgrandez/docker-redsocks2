@@ -72,7 +72,7 @@ trap 'kill ${!}; usr_handler' SIGUSR1
 trap 'kill ${!}; term_handler' SIGTERM
 
 echo "Starting redsocks..."
-/usr/local/bin/redsocks2 -c /tmp/redsocks.conf &
+/usr/sbin/redsocks -c /tmp/redsocks.conf &
 pid="$!"
 
 # wait indefinetely
