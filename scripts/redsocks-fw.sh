@@ -43,7 +43,7 @@ fw_setup() {
   then
     iptables -t nat -A PREROUTING -p tcp -j REDSOCKS
   else
-    iptables -t nat -A PREROUTING -i $DOCKER_NET -p tcp -j REDSOCKS
+    iptables -t nat -A PREROUTING -i $NET_INTERFACE -p tcp -j REDSOCKS
   fi
 }
 

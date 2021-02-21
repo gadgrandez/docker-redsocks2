@@ -9,9 +9,9 @@ fi
 
 if [ -z "$LISTEN_PORT" ]
 then
-    LOCAL_PORT=9150
+    export LOCAL_PORT=9150
 else
-    LOCAL_PORT="$LISTEN_PORT"
+    export LOCAL_PORT="$LISTEN_PORT"
 fi
 
 CONFIG_TEMPLATE=default.tmpl
