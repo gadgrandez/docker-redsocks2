@@ -41,7 +41,7 @@ sed -e "s|\${proxy_ip}|${DEST_IP}|" \
     -e "s|\${local_ip}|${LOCAL_IP}|" \
     -e "s|\${local_port}|${LOCAL_PORT}|" \
     -e "s|\${local_port2}|$(($LOCAL_PORT + 1))|" \
-    /etc/$CONFIG_TEMPLATE > /tmp/redsocks.conf
+    /etc/redsocks-conf/$CONFIG_TEMPLATE > /tmp/redsocks.conf
 
 echo "Generated configuration:"
 cat /tmp/redsocks.conf
@@ -72,7 +72,7 @@ trap 'kill ${!}; usr_handler' SIGUSR1
 trap 'kill ${!}; term_handler' SIGTERM
 
 echo "Starting redsocks..."
-/usr/sbin/redsocks -c /tmp/redsocks.conf &
+/usr/local/bin/redsocks2 -c /tmp/redsocks.conf &
 pid="$!"
 
 # wait indefinetely
