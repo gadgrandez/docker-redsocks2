@@ -3,8 +3,8 @@ FROM ubuntu:latest as build
 WORKDIR /build
 RUN apt update && apt install -y build-essential libssl-dev git libevent-dev
 
-RUN git clone https://github.com/akamensky/redsocks2.git && cd redsocks2/
-RUN git apply patches/disable-ss.patch && make
+RUN git clone https://github.com/akamensky/redsocks2.git
+RUN cd redsocks2/ && git apply patches/disable-ss.patch && make
 
 FROM ubuntu:latest
 
